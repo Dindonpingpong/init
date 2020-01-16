@@ -1,0 +1,2 @@
+#use ping your_broadcast_address
+arp -a

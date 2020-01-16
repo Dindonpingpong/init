@@ -1,0 +1,16 @@
+#!/bin/bash
+me="matrosa1809@gmail.com"
+if [[ "$1" == "-a" ]]; then
+	tar cf $2.tar $2
+elif [[ "$1" == "-e" ]]; then
+	tar xf $2
+elif [[ "$1" == "-s" ]]; then
+	uuencode $3 $3 | sendmail $2
+elif [[ "$1" == "-m" ]]; then
+	uuencode $2 $2 | sendmail $me
+elif [[ "$1" == "-am" ]]; then
+	tar cf $2.tar $2
+	uuencode $2.tar $2.tar | sendmail $me
+else
+	echo "Usage:\nsh 03 -a src_to_archive\nsh 03 -am src_to_archive\nsh 03 -e src_extract_arch\nsh 03 -s dst_email_name src_send\nsh 03 -m src_send_to_me"
+fi

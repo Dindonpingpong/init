@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo su -
+killall $1
+userdel $1
